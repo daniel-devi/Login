@@ -6,8 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>User Has been Logged Out Succesfully</h2>
-    <button><a href="{% url 'signin' %}">Login Again</a></button>
-    <button><a href="{% url 'home' %}">Go to Home Page</a></button>
+    
+
+{% if !user.is_authenticated %}
+    <h3>{{username}} Has been  Logoged Out</h3>
+    <button><a href="{% url 'signin' %}">Signin</a></button>
+    <button><a href="{% url 'home' %}">Go to Homepage</a></button>
+{% else%}
+<h3>{{username}} is logged in</h3>
+{% endif %}
+
+
+
 </body>
 </html>
